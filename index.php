@@ -1,6 +1,3 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Login</title>
 
     <!-- Bootstrap -->
     <link href="styles/bootstrap.css" rel="stylesheet">
-    <link href="styles/sigin_signup.css" rel="stylesheet">
+    <link href="styles/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +27,7 @@
 
 <!--SignIn SignUp-->
 
-<div class="container" style="margin-top: -1.5%">
+<div class="container">
     <div class="col-md-6">
         <div id="longbox">
             <form id="signin" method="post" action="/">

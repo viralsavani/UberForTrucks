@@ -6,6 +6,10 @@
     background-color: #5F5A56;
 }
 
+html, body{
+    height: 100%;
+}
+
 body {
     background: #303135;
 }
@@ -18,12 +22,43 @@ body {
 
 #longbox {
     padding: 10px;
-    margin: 50px auto;
+    margin: 40px auto;
     width: 345px;
     background-color: #fff;
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+#map{
+    margin-top: 20px;
+    height: 95%;
+}
+
+#searchDriverBox{
+    padding: 1px;
+    margin: 20px auto;
+    width: 100%;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+#labelCustom{
+    width: 75%;
+    height: 20px;
+    display: block;
+    margin: 0 auto 1px;
+    padding: 0 15px;
+}
+
+#radioTruckType{
+    width: 75%;
+    height: 50px;
+    display: block;
+    margin: 0 auto 15px;
+    padding: 0 15px;
 }
 
 h1 {
