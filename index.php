@@ -30,7 +30,7 @@
 <div class="container">
     <div class="col-md-6">
         <div id="longbox">
-            <form id="signin" method="post" action="/">
+            <form id="signin" method="post" action="php/validateUser.php">
                 <h1 class="h1" style="font-weight: bold">Login</h1>
                 <input name="user[username]" type="text" placeholder="Enter your username" class="input pass"/>
                 <input name="user[password]" type="password" placeholder="Enter your password" required="required"

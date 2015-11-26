@@ -45,7 +45,7 @@ body {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
 
-#labelCustom{
+.labelCustom{
     width: 75%;
     height: 20px;
     display: block;
@@ -53,9 +53,9 @@ body {
     padding: 0 15px;
 }
 
-#radioTruckType{
+#radioGroupCustom {
     width: 75%;
-    height: 50px;
+    height: 25px;
     display: block;
     margin: 0 auto 15px;
     padding: 0 15px;
@@ -122,3 +122,6 @@ h1, input {
 .inputButton:focus {
     outline: none;
 }
+
+#rangeSlider .ui-slider-handle { border-color: #F33924; background: #F33924; }
+#rangeSlider .ui-slider-range { background: #F57023; }
