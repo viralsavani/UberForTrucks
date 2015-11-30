@@ -1,0 +1,12 @@
+{
+  "name": "viralsavani/uber_for_trucks",
+  "description": "This is a class assignment.",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "viral",
+      "email": "viralsavani@gmail.com"
+    }
+  ]
+}
