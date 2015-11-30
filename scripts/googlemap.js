@@ -5,6 +5,8 @@ var centerOfCircle;
 var rangeCircle;
 var sourceMarker;
 var destinationMarker;
+var randomLatlngArray = [];
+var markers = [];
 
 
 // This method is called as callback from the url
@@ -183,6 +185,66 @@ function getLatLngBound(map){
     return map.getBounds();
 }
 
+function generateRandomLatLng(){
+    var northEast = getLatLngBound(map).getNorthEast();
+    var southWest = getLatLngBound(map).getSouthWest();
+
+    // Lat->15, lng->14
+    var chance = new Chance();
+
+    for (var i = 0; i < 20; i++){
+        var latLng = {lat: parseFloat(chance.latitude({min: southWest.lat(), max: northEast.lat()})),
+            lng: parseFloat(chance.longitude({min: southWest.lng(), max: northEast.lng()}))};
+        randomLatlngArray.push(latLng);
+    }
+
+
+    snapToRoad(randomLatlngArray);
+    drawMarkers(randomLatlngArray);
+    //var string = "";
+    //for (i = 0; i < 10; i++){
+    //    latLng = randomLatlng.pop();
+    //    string = string + "Lat: "+latLng.lat+", Lng: "+latLng.lng+"\n";
+    //}
+    //alert(string);
+}
+
+function snapToRoad(latLngArray){
+    //alert("BeforeSnap:: Marker: "+markers.length+ "\n LatLnt: "+randomLatlngArray.length);
+    for (var i = 0; i < latLngArray.length; i++){
+        $.get('https://roads.googleapis.com/v1/snapToRoads', {
+            interpolate: false,
+            key: 'AIzaSyAAKHibq7dwe5Hbp0qmxrDRzzPVeQuwq8Y',
+            path: latLngArray.pop()
+        }, function(data) {
+            latLngArray.push({lat:data.snappedPoints[0].location.latitude,
+                                lng:data.snappedPoints[0].location.longitude});
+        });
+    }
+    //alert("AfterSnap:: Marker: "+markers.length+ "\n LatLnt: "+randomLatlngArray.length);
+}
+
+function drawMarkers(latLngArray){
+    //TODO: change icon-base
+    var iconBase = 'http://localhost:63342/UberForTrucks/images/';
+    removeMarkers();
+    for (var i = 0; i < latLngArray.length; i++){
+        var position = {lat: latLngArray[i].lat, lng: latLngArray[i].lng};
+        markers[i] = new google.maps.Marker({
+            position : position,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            icon: iconBase + 'car_marker.png'
+        });
+    }
+    //alert("Finally:: Marker: "+markers.length+ "\n LatLnt: "+randomLatlngArray.length);
+}
+
+function removeMarkers(){
+    for (var i = 0; i < markers.length; i++){
+        markers[i].setMap(null);
+    }
+}
 // Method to focus map on the place found
 function expandViewportToFitPlace(map, place) {
     if (place.geometry.viewport) {

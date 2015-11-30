@@ -37,13 +37,13 @@
             <form id="searchDriver" method="post" action="php/searchDriver.php">
 
                 <?php
-                $username = $_GET['username'];
+                $username = strtoupper($_GET['username']);
                 ?>
 
                 <h1 class="h4" style="font-weight: bold"><?php echo "Hi, $username!"; ?></h1>
 
                 <input name="source_address" id="source_address" type="text"
-                       placeholder="Enter the address of pick up"
+                       placeholder="Enter the address of pick up" onblur='generateRandomLatLng()'
                        autofocus="autofocus" required="required" class="input"/>
 
                 <input name="destination_address" id="destination_address" type="text"
@@ -100,7 +100,7 @@
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/jquery.min.js"></script>
 <script src="scripts/googlemap.js"></script>
-<script src="scripts/randomGeo.js"></script>
+<script src="scripts/chance.min.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script>
     $(function () {

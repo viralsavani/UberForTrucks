@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = mysqli_fetch_assoc($result);
         $emailId = $row["emailId"];
 
-
         $host  = $_SERVER['HTTP_HOST'];
         $uri   = 'UberForTrucks';
         $extra = 'requestTruck.php';
