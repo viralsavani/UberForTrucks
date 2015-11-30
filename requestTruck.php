@@ -25,8 +25,8 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 
 <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAKHibq7dwe5Hbp0qmxrDRzzPVeQuwq8Y&libraries=places&callback=initMap"
-        async defer></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAKHibq7dwe5Hbp0qmxrDRzzPVeQuwq8Y&libraries=places&callback=initMap"
+    async defer></script>
 
 
 <div class="container">
@@ -34,7 +34,8 @@
     </div>
     <div id="search_driver_div" class="col-xs-6 col-md-4" style=" height: 100%">
         <div id="searchDriverBox">
-            <form id="searchDriver" method="post" action="php/searchDriver.php">
+
+            <form id="searchDriver" method="post" action="">
 
                 <?php
                 $username = strtoupper($_GET['username']);
@@ -43,11 +44,11 @@
                 <h1 class="h4" style="font-weight: bold"><?php echo "Hi, $username!"; ?></h1>
 
                 <input name="source_address" id="source_address" type="text"
-                       placeholder="Enter the address of pick up" onblur='generateRandomLatLng()'
+                       placeholder="Enter the address of pick up"
                        autofocus="autofocus" required="required" class="input"/>
 
                 <input name="destination_address" id="destination_address" type="text"
-                       placeholder="Enter the address of drop"
+                       placeholder="Enter the address of drop" onblur="generateRandomLatLng()"
                        required="required" class="input"/>
 
                 <label for="truckType" class="labelCustom">Select Truck Type</label>
@@ -75,12 +76,12 @@
                 <div id="packagingInclusion" class="radio radioGroupCustom">
                     <label class="radio-inline">
                         <input type="radio" name="isPackagingIncludeGroup" id="yesPackagingInclude"
-                               value="small">Yes
+                               value="1">Yes
                     </label>
 
                     <label class="radio-inline">
                         <input type="radio" name="isPackagingIncludeGroup" id="noPackagingInclude"
-                               value="medium" checked="checked">No
+                               value="0" checked="checked">No
                     </label>
                 </div>
 
@@ -88,7 +89,7 @@
 
                 <div id="rangeSlider" disabled="true" class="labelCustom" style="margin-top: 7px;"></div>
 
-                <input type="submit" value="Search Driver" class="inputButton"
+                <input type="button" value="Search Driver" class="inputButton" onclick="searchDriver()"
                        style="font-weight: bold; font-size: large"/>
             </form>
         </div>
@@ -100,7 +101,7 @@
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/jquery.min.js"></script>
 <script src="scripts/googlemap.js"></script>
-<script src="scripts/chance.min.js"></script>
+<script src="scripts/randomGeo.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script>
     $(function () {

@@ -7,8 +7,8 @@ function generateRandomPoints(center, radius, count) {
 }
 
 function generateRandomPoint(center, radius) {
-    var x0 = center.lng;
-    var y0 = center.lat;
+    var x0 = center.lng();
+    var y0 = center.lat();
     // Convert Radius from meters to degrees.
     var rd = radius/111300;
 
