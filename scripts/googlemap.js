@@ -1,6 +1,3 @@
-/**
- * Created by viral on 11/24/2015.
- */
 var source_place_id = null;
 var destination_place_id = null;
 var map;
@@ -136,9 +133,9 @@ function drawCircle(radius){
 }
 
 // Returns the current range selected by user in meters
-function getRangeMeters(){
+function getRadiusMeters(){
     if (rangeCircle != undefined){
-        return rangeCircle.getRaduis();
+        return rangeCircle.getRadius();
     }else {
         return null;
     }
@@ -180,6 +177,10 @@ function getLatlngFromPlaceId(place_id){
             return results[0].geometry.location;
         }
     });
+}
+
+function getLatLngBound(map){
+    return map.getBounds();
 }
 
 // Method to focus map on the place found

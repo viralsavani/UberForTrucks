@@ -28,13 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $host  = $_SERVER['HTTP_HOST'];
     $uri   = 'UberForTrucks';
-    $extra = 'index.php';
+    $extra = 'index.html';
 
     if ($userDetailFlag && $userLoginFlag){
         echo '<h2>Account created successfully. You will be re-directed to LoginScreen in 3 seconds...</h2>';
         header('refresh:3; url=/'.$uri.'/'.$extra);
     }else{
-        echo '<h2>Account creation unsuccessful. Click <a href="../index.php">HERE</a> to return to Registration Page</h2>';
+        echo '<h2>Account creation unsuccessful. Click <a href="../index.html">HERE</a> to return to Registration Page</h2>';
     }
 }
-
