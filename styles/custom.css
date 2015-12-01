@@ -35,7 +35,7 @@ body {
     height: 95%;
 }
 
-#searchDriverBox{
+.searchDriverBox{
     padding: 1px;
     margin: 20px auto;
     width: 100%;
@@ -122,6 +122,35 @@ h1, input {
 .inputButton:focus {
     outline: none;
 }
+
+.selectDriverButton {
+    position: relative;
+    width: 85%;
+    height: 50px;
+    display: block;
+    margin: 30px auto 20px;
+    color: white;
+    background-color: #F57023;
+    border: none;
+    -webkit-box-shadow: 0 5px 0 #F33924;
+    -moz-box-shadow: 0 5px 0 #F33924;
+    box-shadow: 0 5px 0 #F33924;
+}
+.selectDriverButton:hover {
+    top: 2px;
+    -webkit-box-shadow: 0 3px 0 #F33924;
+    -moz-box-shadow: 0 3px 0 #F33924;
+    box-shadow: 0 3px 0 #F33924;
+}
+.selectDriverButton:active {
+    top: 5px;
+    box-shadow: none;
+}
+.selectDriverButton:focus {
+    outline: none;
+}
+
+
 
 #rangeSlider .ui-slider-handle { border-color: #F33924; background: #F33924; }
 #rangeSlider .ui-slider-range { background: #F57023; }

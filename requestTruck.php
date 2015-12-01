@@ -33,7 +33,7 @@
     <div id="map" class="col-xs-12 col-sm-6 col-md-8">
     </div>
     <div id="search_driver_div" class="col-xs-6 col-md-4" style=" height: 100%">
-        <div id="searchDriverBox">
+        <div class="searchDriverBox" >
 
             <form id="searchDriver" method="post" action="">
 
@@ -91,8 +91,17 @@
 
                 <input type="button" value="Search Driver" class="inputButton" onclick="searchDriver()"
                        style="font-weight: bold; font-size: large"/>
+
+                <input type="text" name="driver_selected" id="driver_selected"
+                       style="margin-top: -10px"
+                       class="input" readonly placeholder="Name of Driver Selected">
+
+                <button type="button" class="selectDriverButton"
+                        style="font-weight: bold; font-size: large;margin-top: -10px" onclick="requestTruck()">
+                    Request Truck</button>
             </form>
         </div>
+
     </div>
 </div>
 
@@ -120,7 +129,7 @@
     tooltip.css("line-height", "20px");
     tooltip.css("text-align", "center");
     tooltip.css("vertical-align", "middle");
-    tooltip.text(currentSliderValue + " mi");
+    tooltip.text(currentSliderValue + " km");
     $("#rangeSlider").slider({
         value: 1,
         range: "min",
@@ -129,8 +138,8 @@
         step: 0.1,
         slide: function (event, ui) {
             currentSliderValue = ui.value;
-            tooltip.text(ui.value + " mi");
-            drawCircle(currentSliderValue / 2);
+            tooltip.text(ui.value + " km");
+            drawCircle(currentSliderValue);
         },
         change: function (event, ui) {
         }
